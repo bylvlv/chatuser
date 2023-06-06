@@ -1,6 +1,7 @@
 import { Index, Show, createSignal, onMount } from 'solid-js'
 import Cosplay from './Cosplay.js'
 import IconEnv from './icons/Env'
+import IconRight from './icons/Right'
 import type { Accessor, Setter } from 'solid-js'
 
 interface Props {
@@ -85,10 +86,16 @@ export default (props: Props) => {
           </div>
         </Show>
         <Show when={!props.currentSystemRoleSettings() && props.canEdit()}>
-          <span onClick={() => props.setSystemRoleEditing(!props.systemRoleEditing())} class="sys-edit-btn">
-            <IconEnv />
-            <span>设置预设角色</span>
-          </span>
+          <div class="mt-4 flex items-center">
+            <span>
+              <IconRight />
+            </span>
+            <span onClick={() => props.setSystemRoleEditing(!props.systemRoleEditing())} class="sys-edit-btn ml-2 ">
+              <IconEnv />
+              <span class="text-rose-400">设置预设角色</span>
+            </span>
+          </div>
+
         </Show>
       </Show>
       <Show when={props.systemRoleEditing() && props.canEdit()}>

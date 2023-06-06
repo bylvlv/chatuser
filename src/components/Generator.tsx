@@ -5,6 +5,7 @@ import { generateSignature } from '@/utils/auth'
 import Qustion from './Question.js'
 import IconClear from './icons/Clear'
 import IconRand from './icons/Rand'
+import IconRight from './icons/Right'
 import MessageItem from './MessageItem'
 import SystemRoleSettings from './SystemRoleSettings'
 import Login from './Login'
@@ -259,15 +260,14 @@ export default () => {
     <div my-1>
       <div>
         <Show when={!isLogin()}>
-          <p mt-1 op-60>欢迎来到人工智能时代</p>
-          <p mt-1 op-60>验证邮箱以获取免费额度</p>
+          <p mt-1 op-60 text-sm text-rose-300>登录可获取免费额度哟~</p>
         </Show>
       </div>
       <div class="flex items-center">
         <Show when={isLogin() && user().nickname}>
           <p mt-1 op-60>
-            Hi,{user().nickname} 剩余额度{user().times}次
-            <span onClick={() => { setShowCharge(true) }} class="border-1 px-2 py-1 ml-2 rounded-md transition-colors bg-slate/20 cursor-pointer hover:bg-slate/50">充值</span>
+            Hi, <span class="text-rose-400">{user().nickname}</span> 当前剩余额度{user().times}次
+            <span onClick={() => { setShowCharge(true) }} class="border-1 px-2 py-1 ml-2 transition-colors bg-slate/20 cursor-pointer hover:bg-slate/50  rounded-full bg-gradient-to-r from-rose-300 to-rose-400 text-white text-sm">充值</span>
           </p>
         </Show>
       </div>
@@ -288,10 +288,13 @@ export default () => {
 
       <Show when={isLogin()}>
         <Show when={messageList().length === 0}>
-          <div onClick={randQuestion}>
-            <span class="mt-2 inline-flex items-center justify-center gap-1 text-sm  bg-slate/20 px-2 py-1 rounded-md transition-colors cursor-pointer hover:bg-slate/50">
+          <div class="mt-4 flex items-center">
+            <span>
+              <IconRight />
+            </span>
+            <span onClick={randQuestion} class="sys-edit-btn ml-2">
               <IconRand />
-              <span>随便问问</span>
+              <span class="text-rose-400 ml-1">随便问问</span>
             </span>
           </div>
         </Show>
@@ -344,12 +347,15 @@ export default () => {
             showSetting={showSetting}
             setShowSetting={setShowSetting}
           />
-          <div class="gen-text-wrapper" class:op-50={systemRoleEditing()}>
+          <div class="gen-text-wrapper items-center" class:op-50={systemRoleEditing()}>
+            <span>
+              <IconRight />
+            </span>
             <textarea
               ref={inputRef!}
               disabled={systemRoleEditing()}
               onKeyDown={handleKeydown}
-              placeholder="可输入任意问题"
+              placeholder="直接对话"
               autocomplete="off"
               autofocus
               onInput={() => {
@@ -357,7 +363,7 @@ export default () => {
                 inputRef.style.height = `${inputRef.scrollHeight}px`
               }}
               rows="1"
-              class="gen-textarea"
+              class="gen-textarea rounded-full px-4"
             />
             <button
               onClick={handleButtonClick}
@@ -367,7 +373,7 @@ export default () => {
               bg-slate
               bg-op-15
               hover:bg-op-20
-              rounded-sm
+              rounded-full
               w-20
             >
               发送

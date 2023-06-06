@@ -61,35 +61,35 @@ export default (props: Props) => {
   }
 
   return (
-    <div id="input_container" class="mt-2 max-w-[450px]">
+    <div id="input_container" class="mt-4 max-w-[450px]">
       <input
         ref={emailRef!}
         placeholder="邮箱"
         type="text"
-        class="gpt-password-input w-full"
+        class="gpt-password-input w-full rounded-full"
         value=""
       />
-      <div class="flex mt-2 justify-center items-center">
+      <div class="flex mt-4 justify-center items-center">
         <input
           ref={codeRef}
           id="code_input"
-          class="gpt-password-input w-2/3"
+          class="gpt-password-input w-2/3 rounded-full"
           placeholder="验证码"
           v-model="data.form.verify_code"
         />
         <Show when={countdown() <= 0}>
-          <button onClick={sendCode} class="w-1/3 h-12 px-2 py-2 bg-slate bg-op-15 hover:bg-op-20 rounded-sm ml-2">
+          <button onClick={sendCode} class="w-1/3 h-12 px-2 py-2 bg-slate bg-op-15 hover:bg-op-20 rounded-full ml-2 bg-gradient-to-r text-rose-400">
             发送
           </button>
         </Show>
         <Show when={countdown() > 0}>
-          <div class="w-1/3 h-12 px-2 leading-12 bg-slate bg-op-15 hover:bg-op-20 rounded-sm ml-2 text-center text-gray-400">
+          <div class="w-1/3 h-12 px-2 leading-12 bg-slate bg-op-15 hover:bg-op-20 rounded-full ml-2 text-center text-rose-400">
             {countdown()}秒
           </div>
         </Show>
       </div>
 
-      <button onClick={login} class="w-1/3 h-12 mt-2 px-4 py-2 bg-slate bg-op-15 hover:bg-op-20 rounded-sm">
+      <button onClick={login} class="w-full h-12 mt-8 px-4 py-2 bg-slate bg-op-15 hover:bg-op-20 rounded-full bg-gradient-to-r from-rose-300 to-rose-400 text-white">
         开始使用
       </button>
     </div>
