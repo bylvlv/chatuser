@@ -363,7 +363,7 @@ export default () => {
                 inputRef.style.height = `${inputRef.scrollHeight}px`
               }}
               rows="1"
-              class="gen-textarea rounded-full px-4"
+              class="gen-textarea rounded-md px-4"
             />
             <button
               onClick={handleButtonClick}
@@ -373,7 +373,7 @@ export default () => {
               bg-slate
               bg-op-15
               hover:bg-op-20
-              rounded-full
+              rounded-md
               w-20
             >
               发送

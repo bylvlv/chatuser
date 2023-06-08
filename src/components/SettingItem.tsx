@@ -167,7 +167,7 @@ export default (props: Props) => {
               >
                 <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
               </svg>
-              <span> 点击可重新生成答案</span>
+              <span class="ml-2"> 点击可重新生成答案</span>
             </div>
             <div class="flex">
               <svg
@@ -181,7 +181,7 @@ export default (props: Props) => {
               >
                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
               </svg>
-              <span> 将全部问答保存为图片</span>
+              <span class="ml-2"> 将全部问答保存为图片</span>
             </div>
             <div class="flex">
               <svg
@@ -195,20 +195,20 @@ export default (props: Props) => {
               >
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" />
               </svg>
-              <span> 复制全部问答的文本</span>
+              <span class="ml-2"> 复制全部问答的文本</span>
             </div>
             <div>
               <div>开关为连续对话开关</div>
               <div>开启理解对话上下文,但次数消耗快,每次问答消耗累加(最高5次)</div>
               <div>关闭不理解对话上下文,次数消耗少,每次仅消耗1次</div>
             </div>
-            <div>
+            {/* <div>
               <div>↓网站集成了flomo笔记接口,可将某个提问或回答保存到笔记软件</div>
               <a class="mt-2 inline-flex items-center justify-center gap-1 text-sm  bg-slate/20 px-2 py-1 rounded-md transition-colors cursor-pointer hover:bg-slate/50" href="https://v.flomoapp.com/register/?NzQyMDE" target="_brank">注册浮墨笔记</a>
-            </div>
+            </div> */}
 
           </div>
-          <div class="flex space-x-2">
+          {/* <div class="flex space-x-2">
             <input
               ref={flomoRef!}
               placeholder="填写flomo API链接"
@@ -227,7 +227,7 @@ export default (props: Props) => {
             >
               保存
             </button>
-          </div>
+          </div> */}
 
         </div>
       </Show>
