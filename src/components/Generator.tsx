@@ -263,11 +263,11 @@ export default () => {
           <p mt-1 op-60 text-sm text-rose-300>登录可获取免费额度哟~</p>
         </Show>
       </div>
-      <div class="flex items-center">
+      <div class="flex items-center text-xs w-full mx-auto">
         <Show when={isLogin() && user().nickname}>
-          <p mt-1 op-60>
+          <p mt-1 op-60 class="mx-auto">
             Hi, <span class="text-rose-400">{user().nickname}</span> 当前剩余额度{user().times}次
-            <span onClick={() => { setShowCharge(true) }} class="border-1 px-2 py-1 ml-2 transition-colors bg-slate/20 cursor-pointer hover:bg-slate/50  rounded-full bg-gradient-to-r from-rose-300 to-rose-400 text-white text-sm">充值</span>
+            <span onClick={() => { setShowCharge(true) }} class="border-1 px-2 py-1 ml-2 transition-colors bg-slate/20 cursor-pointer hover:bg-slate/50  rounded-full bg-gradient-to-r from-rose-300 to-rose-400 text-white text-xs">充值</span>
           </p>
         </Show>
       </div>
@@ -288,7 +288,7 @@ export default () => {
 
       <Show when={isLogin()}>
         <Show when={messageList().length === 0}>
-          <div class="mt-4 flex items-center">
+          <div class="mt-8 flex items-center">
             <span>
               <IconRight />
             </span>
