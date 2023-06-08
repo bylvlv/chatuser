@@ -7,15 +7,16 @@ import Themetoggle from './Themetoggle.astro';
   <div>
     <Themetoggle />
   </div>
-  <div class="fb items-center w-full">
-    <img src="/img/logo_o.png" alt="" class="w-32 h-32 rounded-full mx-auto">
-
-  </div>
-  <div class="fi mt-2 text-center w-full mx-auto">
-    <span class="gpt-subtitle mx-auto">
-      ChatGPT
-      <span class="ml-2 text-xl op-60 text-rose-400">3.5</span>
-    </span>
+  <div class="fi mt-2">
+    <span class="gpt-subtitle">ChatGPT</span>
+    <span class="ml-1 text-xl op-60">3.5</span>
+    {
+      import.meta.env.GPT4_LINK
+        ? (
+        <a target="_blank" href={import.meta.env.GPT4_LINK} class="ml-4 text-sm b-1 px-2 py-1 rounded-md op-60">升级为GPT4.0</a>
+          )
+        : null
+    }
 
   </div>
 </header>
