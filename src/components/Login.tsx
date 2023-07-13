@@ -1,4 +1,5 @@
-import { Show, createSignal } from 'solid-js'
+import { Show, createSignal, onMount } from 'solid-js'
+import { getParam } from '../utils/func'
 import type { User } from '@/types'
 import type { Setter } from 'solid-js'
 interface Props {
@@ -11,6 +12,13 @@ export default (props: Props) => {
   let codeRef: HTMLInputElement
 
   const [countdown, setCountdown] = createSignal(0)
+  const [code, setCode] = createSignal('')
+
+  onMount(() => {
+    const shareCode = getParam('code')
+    if (shareCode)
+      setCode(shareCode)
+  })
 
   const login = async() => {
     const response = await fetch('/api/login', {
@@ -21,6 +29,7 @@ export default (props: Props) => {
       body: JSON.stringify({
         email: emailRef.value,
         code: codeRef.value,
+        shareCode: code(),
       }),
     })
     const responseJson = await response.json()
@@ -92,6 +101,12 @@ export default (props: Props) => {
       <button onClick={login} class="w-full h-12 mt-8 px-4 py-2 bg-slate bg-op-15 hover:bg-op-20 rounded-full bg-gradient-to-r from-rose-300 to-rose-400 text-white">
         开始使用
       </button>
+
+      <Show when={code() !== ''}>
+        <div class="op-60 py-4">
+          邀请码: {code()}
+        </div>
+      </Show>
     </div>
   )
 }

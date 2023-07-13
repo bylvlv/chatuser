@@ -36,6 +36,11 @@ export default () => {
     nickname: '',
     times: 0,
     token: '',
+    share_code: '',
+    inv_count: 0,
+    inv_pay_count: 0,
+    times_reward: 0,
+    dir_inv_rate: 0,
   })
 
   onMount(async() => {
@@ -73,7 +78,6 @@ export default () => {
 
   const handleButtonClick = async() => {
     const inputValue = inputRef.value
-    console.log(inputValue)
     if (!inputValue)
       return
 
@@ -346,6 +350,7 @@ export default () => {
             setSetting={setSetting}
             showSetting={showSetting}
             setShowSetting={setShowSetting}
+            user={user}
           />
           <div class="gen-text-wrapper items-center" class:op-50={systemRoleEditing()}>
             <span>

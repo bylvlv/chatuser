@@ -14,6 +14,11 @@ export interface User {
   nickname: string
   times: number
   token: string
+  share_code: string
+  inv_count: number
+  inv_pay_count: number
+  times_reward: number
+  dir_inv_rate: number
 }
 export interface ErrorMessage {
   code: string
