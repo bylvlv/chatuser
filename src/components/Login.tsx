@@ -70,7 +70,7 @@ export default (props: Props) => {
   }
 
   return (
-    <div id="input_container" class="mt-4 max-w-[450px]">
+    <div id="input_container" class="mt-4 w-full">
       <input
         ref={emailRef!}
         placeholder="邮箱"
